@@ -1,0 +1,40 @@
+---
+databaseChangeLog:
+  -
+    preConditions:
+      -
+        runningAs:
+          username: <%= username %>
+  -
+    changeSet:
+      id: <%= id %>
+      author: <%= author %>
+      changes:
+        -
+          createTable:
+            tableName: <%= table_name %>
+            columns:
+              -
+                column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                  name: id
+                  type: int
+              -
+                column:
+                  name: dh_atualizacao
+                  type: datetime
+              -
+                column:
+                  name: dh_criacao
+                  type: datetime
+              -
+                column:
+                  name: version
+                  type: int
+        -
+          addPrimaryKey:
+            columnNames: id
+            constraintName: pk_<%= table_name %>
+            tableName: <%= table_name %>
