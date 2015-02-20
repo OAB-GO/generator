@@ -17,4 +17,4 @@ end.parse!
 
 
 parser = Parser.new({ :username => 'oab2_user', :author => 'Wender Freese' })
-puts parser.render()
+puts parser.render('migration.rb.erb')
