@@ -1,42 +1,20 @@
 require 'optparse'
-require 'erb'
 require 'yaml'
-require 'ostruct'
 
-templates = File.expand_path("../templates", __FILE__)
-file_name = Time.now.to_i
-#file = YAML.load_file("#{root}/config/directory.yml")
-#file.inspect
+require './lib/parser'
 
-# ARGV.each do|param|
-#   if (param == 'migration')
-#   	File.open("#{root}/migration.rb", "w")
-#   end
-# end
+# templates = File.expand_path("../templates", __FILE__)
+# file_name = Time.now.to_i
 
-# options = {}
-# OptionParser.new do |opts|
-#   opts.banner = "Usage: example.rb [options]"
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: example.rb [options]"
 
-#   opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
-#     options[:verbose] = v
-#   end
-# end.parse!
-
-# p options
-# p ARGV
-
-# a = ERB.new(File.read("#{templates}/migration.rb.erb"))
-
-
-
-# puts YAML.load a.result()
-
-class Params < OpenStruct
-  def render()
-    ERB.new(File.read("#{File.expand_path("../templates", __FILE__)}/migration.rb.erb")).result(binding)
+  opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+    options[:verbose] = v
   end
-end
+end.parse!
 
-et = Params.new({ :username => 'oab2_user', :author => 'Wender Freese' })
-puts et.render()
+
+parser = Parser.new({ :username => 'oab2_user', :author => 'Wender Freese' })
+puts parser.render()
