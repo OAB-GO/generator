@@ -1,20 +1,38 @@
+#!/usr/bin ruby
+
 require 'optparse'
 require 'yaml'
+require File.expand_path("../lib/setup", __FILE__)
+# require File.expand_path("../lib/parser", __FILE__)
 
-require './lib/parser'
+if(ARGV[0] == "setup")
+	@s = Setup.new()
+end
 
-# templates = File.expand_path("../templates", __FILE__)
-# file_name = Time.now.to_i
+# options = {}
+# OptionParser.new do |opts|
+#   opts.banner = "Usage: generator.rb [options]"
 
-options = {}
-OptionParser.new do |opts|
-  opts.banner = "Usage: example.rb [options]"
+#   opts.on("-d {path}", "--dir {path}", "Set the path where files will be generated") do |v|
+#     options[:dir] = ARGV
+#   end
 
-  opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
-    options[:verbose] = v
-  end
-end.parse!
+#   opts.on("-u {username}", "--username {username}", "Set a static username") do |v|
+#     options[:username] = ARGV
+#   end
 
+#   opts.on("-a", "--author {author}", "Set a static author") do |v|
+#     options[:author] = v
+#   end
 
-parser = Parser.new({ :username => 'oab2_user', :author => 'Wender Freese' })
-puts parser.render('migration.rb.erb')
+#   opts.on("-h", "--help", "Show valid arguments") do
+#     puts opts
+#     exit
+#   end
+# end.parse!
+
+# puts options
+# puts ARGV
+
+# parser = Parser.new({ :username => 'oab2_user', :author => 'Wender Freese' })
+# puts parser.render('migration.rb.erb')
