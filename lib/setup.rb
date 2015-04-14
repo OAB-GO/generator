@@ -1,43 +1,43 @@
-require 'yaml'
+class Setup < Generator::Base
+  attr_accessor :dir, :username, :author
 
-class Setup
+  def initialize(parameters = {})
+    @dir = parameters.dir
+    @username = parameters.username
+    @author = parameters.author
+  end
 
-	@@file = File.expand_path("../../config/configuration.yml", __FILE__)
+  def save
+    switch_existent_value
+    File.open(Setup.config, "w") do |file|
+      file.puts serialize(file)
+    end
+  end
 
-	def initialize(options = {})
-		OptionParser.new do |opts|
-		  opts.banner = "Usage: generator.rb [options]"
+  def self.load
+    YAML.load File.open(Setup.config, "r")
+  end
 
-		  opts.on("-d", "--dir {dir}", "Set the path where files will be generated") do |value|
-		    options[:dir] = value
-		  end
+  def self.exists?
+    File.exist? Setup.config
+  end
 
-		  opts.on("-u", "--username {username}", "Set a static username") do |value|
-		    options[:username] = value
-		  end
+  private
 
-		  opts.on("-a", "--author {author}", "Set a static author") do |value|
-		    options[:author] = value
-		  end
+  def switch_existent_value
+    if Setup.exists?
+      previous = Setup.load
+      self.dir ||= previous.dir
+      self.username ||= previous.username
+      self.author ||= previous.author
+    end
+  end
 
-		  opts.on("-h", "--help", "Show valid arguments") do
-		    puts opts
-		    exit
-		  end
-		end.parse!
+  def serialize(file)
+    YAML.dump self
+  end
 
-		parse(options)
-	end
-
-	def parse(attributes)
-		@config_file = YAML.load_file(@@file)
-		@config_file['config'] = @config_file['config'].merge(attributes.inject({}) { |hash, (k, v)|
-			hash[k.to_s] = v
-			hash	
-		})
-		
-		File.open(@@file, 'w') do |o|
-			o.write @config_file.to_yaml
-		end
-	end
+  def to_s
+    %Q{ Directory: #{dir}, Username: #{username}, Author: #{author} }
+  end
 end
