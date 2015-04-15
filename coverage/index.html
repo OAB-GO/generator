@@ -14,7 +14,7 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-14T17:39:14-03:00">2015-04-14T17:39:14-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-15T11:52:39-03:00">2015-04-15T11:52:39-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.35
+         1.41
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>2</b> files in total.
-    <b>31</b> relevant lines. 
-    <span class="green"><b>31</b> lines covered</span> and
+    <b>30</b> relevant lines. 
+    <span class="green"><b>30</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -51,23 +51,23 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#5a756536bb7779269eabba3f22ef6191b5e102ec" class="src_link" title="spec/migration_spec.rb">spec/migration_spec.rb</a></td>
+        <td class="strong"><a href="#ac80fce2cd19a3b666529af17e648e76d1eedd82" class="src_link" title="spec/setup_spec.rb">spec/setup_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>16</td>
-        <td>9</td>
-        <td>9</td>
+        <td>40</td>
+        <td>23</td>
+        <td>23</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#ac80fce2cd19a3b666529af17e648e76d1eedd82" class="src_link" title="spec/setup_spec.rb">spec/setup_spec.rb</a></td>
+        <td class="strong"><a href="#c51c452c4029c2f4a741fce2fd792ee9f220f708" class="src_link" title="spec/template_spec.rb">spec/template_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>48</td>
-        <td>22</td>
-        <td>22</td>
+        <td>13</td>
+        <td>7</td>
+        <td>7</td>
         <td>0</td>
-        <td>1.5</td>
+        <td>1.1</td>
       </tr>
       
     </tbody>
@@ -86,127 +86,13 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="5a756536bb7779269eabba3f22ef6191b5e102ec">
-  <div class="header">
-    <h3>spec/migration_spec.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
-    <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
-          
-          <code class="ruby">require &#39;spec_helper&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="2">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
-          
-          <code class="ruby">describe Migration do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  let(:args) {</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    [&#39;User&#39;, &#39;name:string&#39;, &#39;age:int&#39;]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">  }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  context &#39;Creating a new Migration object&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &#39;.create(columns)&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      subject = Migration.create(args)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.name).to eq(&#39;User&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.columns.size).to eq(2)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-      
         <div class="source_table" id="ac80fce2cd19a3b666529af17e648e76d1eedd82">
   <div class="header">
     <h3>spec/setup_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>22</b> relevant lines. 
-      <span class="green"><b>22</b> lines covered</span> and
+      <b>23</b> relevant lines. 
+      <span class="green"><b>23</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -259,7 +145,7 @@
         <li class="covered" data-hits="4" data-linenumber="8">
           <span class="hits">4</span>
           
-          <code class="ruby">    Options.new &quot;~/desenvolvimento/projetos/workspace/&quot;, &quot;oab_server2&quot;, &quot;Wender Freese&quot;</code>
+          <code class="ruby">    Options.new &quot;/Users/wender/Documents/oab2_files/teste&quot;, &quot;oab_server2&quot;, &quot;Wender Freese&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -394,10 +280,10 @@
           <code class="ruby">      subject.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    #   expect(Setup.load.dir).to eq(defaults.dir)</code>
+          <code class="ruby">      expect(Setup.load.dir).to eq(defaults.dir)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
@@ -451,52 +337,100 @@
         <li class="never" data-hits="" data-linenumber="40">
           
           
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="c51c452c4029c2f4a741fce2fd792ee9f220f708">
+  <div class="header">
+    <h3>spec/template_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>7</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;spec_helper&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # context &#39;When user puts just one of three parameters&#39; do</code>
+          <code class="ruby">describe Template do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #   context &#39;Should be change just parameter informed&#39; do</code>
+          <code class="ruby">  describe &#39;.get(template)&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     it &#39;#save&#39; do</code>
+          <code class="ruby">    it &#39;should raise an error if template has not found&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="covered" data-hits="2" data-linenumber="6">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      expect { Template.get :inexistent }.to raise_error</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     end</code>
+          <code class="ruby">    it &#39;should return a specific template&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #   end</code>
+          <code class="ruby">      expect(Template.get :migration).to eq(&#39;./templates/migration.rb.erb&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">  # end</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">end</code>

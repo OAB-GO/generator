@@ -5,7 +5,7 @@ describe Setup do
   let(:defaults) {
     attributes = [:dir, :username, :author]
     klass = Object.const_set "Options", Struct.new(*attributes)
-    Options.new "~/desenvolvimento/projetos/workspace/", "oab_server2", "Wender Freese"
+    Options.new "/Users/wender/Documents/oab2_files/teste", "oab_server2", "Wender Freese"
   }
 
   subject {
@@ -28,7 +28,7 @@ describe Setup do
       expect(Setup.load.dir).to eq(defaults.dir)
       subject.dir = nil
       subject.save
-    #   expect(Setup.load.dir).to eq(defaults.dir)
+      expect(Setup.load.dir).to eq(defaults.dir)
     end
   end
 
@@ -37,12 +37,4 @@ describe Setup do
       expect(Setup.load.dir).to eq(defaults.dir)
     end
   end
-
-  # context 'When user puts just one of three parameters' do
-  #   context 'Should be change just parameter informed' do
-  #     it '#save' do
-
-  #     end
-  #   end
-  # end
 end

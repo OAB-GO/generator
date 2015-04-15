@@ -1,25 +1,32 @@
-class Setup < Generator::Base
-  attr_accessor :dir, :username, :author
+require File.expand_path "lib/extension"
+require 'yaml'
+
+class Setup
+  include Generator::Configuration
+  CONFIGURATION_FILE = "./config/configuration.yml"
+
+  attr_reader :teste
 
   def initialize(parameters = {})
     @dir = parameters.dir
     @username = parameters.username
     @author = parameters.author
+    # @teste = { "dir" => '1', "register" => 2 }
   end
 
   def save
     switch_existent_value
-    File.open(Setup.config, "w") do |file|
-      file.puts serialize(file)
+    File.open(CONFIGURATION_FILE, "w") do |file|
+      file.puts serialize
     end
   end
 
   def self.load
-    YAML.load File.open(Setup.config, "r")
+    YAML.load File.open(CONFIGURATION_FILE, "r")
   end
 
   def self.exists?
-    File.exist? Setup.config
+    File.exist? CONFIGURATION_FILE
   end
 
   private
@@ -27,13 +34,15 @@ class Setup < Generator::Base
   def switch_existent_value
     if Setup.exists?
       previous = Setup.load
-      self.dir ||= previous.dir
-      self.username ||= previous.username
-      self.author ||= previous.author
+      instance_variables.each do |var|
+        current_var = instance_variable_get "#{var}"
+        previous_var = previous.instance_variable_get "#{var}"
+        instance_variable_set "#{var}", previous_var if current_var == nil
+      end
     end
   end
 
-  def serialize(file)
+  def serialize
     YAML.dump self
   end
 

@@ -12,7 +12,7 @@ databaseChangeLog:
       changes:
         -
           createTable:
-            tableName: <%= table_name %>
+            tableName: <%= name %>
             columns:
               -
                 column:
@@ -33,8 +33,14 @@ databaseChangeLog:
                 column:
                   name: version
                   type: int
+              <% columns.each do |column| %>
+              -
+                column:
+                  name: <%= column[:name].to_s.downcase %>
+                  type: <%= column[:type].to_s.downcase %>
+              <% end %>
         -
           addPrimaryKey:
             columnNames: id
-            constraintName: pk_<%= table_name %>
-            tableName: <%= table_name %>
+            constraintName: pk_<%= name %>
+            tableName: <%= name %>

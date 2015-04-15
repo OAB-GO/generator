@@ -1,4 +1,4 @@
 --- !ruby/object:Setup
-dir: teste
-username: wender
-author: Daniel
+dir: /Users/wender/Documents/oab2_files/teste
+username: oab_server2
+author: Wender Freese

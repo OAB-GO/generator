@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require File.expand_path('lib/base')
 require File.expand_path('lib/setup')
 require File.expand_path('lib/migration')
 
@@ -25,7 +24,8 @@ end
 
 command :migration do |c|
   c.action do |args, options|
-  	say args.first
+  	migration = Migration.create(args)
+    migration.generate
   end
 end
 
