@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
 
-require File.expand_path('lib/setup')
-require File.expand_path('lib/migration')
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'rubygems'
 require 'commander/import'
+require 'generator'
 
 program :name, 'Scaffold Generator'
 program :version, '0.0.1'
@@ -24,7 +25,7 @@ end
 
 command :migration do |c|
   c.action do |args, options|
-  	migration = Migration.create(args)
+    migration = Migration.create(args)
     migration.generate
   end
 end

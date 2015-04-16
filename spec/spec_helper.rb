@@ -1,7 +1,7 @@
-require File.expand_path('lib/template')
-require File.expand_path('lib/migration')
-require File.expand_path('lib/setup')
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
+require 'generator'
 require 'simplecov'
 
 SimpleCov.start

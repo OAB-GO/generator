@@ -1,4 +1,3 @@
-require File.expand_path "lib/extension"
 require 'yaml'
 
 class Setup
@@ -27,6 +26,10 @@ class Setup
 
   def self.exists?
     File.exist? CONFIGURATION_FILE
+  end
+
+  def self.path
+    CONFIGURATION_FILE
   end
 
   private

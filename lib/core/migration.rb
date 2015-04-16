@@ -1,5 +1,3 @@
-require File.expand_path "lib/extension"
-require File.expand_path "lib/template"
 require 'erb'
 require 'fileutils'
 

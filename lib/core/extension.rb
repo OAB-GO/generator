@@ -13,5 +13,4 @@ module Generator
       end
     end
   end
-
 end

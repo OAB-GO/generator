@@ -1,13 +1,10 @@
 require 'spec_helper'
+require 'fileutils'
 
 describe Migration do
 
-  let(:args) {
-    ['User', 'name:string', 'age:int']
-  }
-
   subject {
-    Migration.create(args)
+    Migration.create(['User', 'name:string', 'age:int'])
   }
 
   describe '.create(columns)' do
@@ -18,6 +15,10 @@ describe Migration do
   end
 
   describe '#next_id' do
+    before {
+      FileUtils.rm Dir["#{subject.dir}/*.yml"]
+    }
+
     context 'when migration directory is empty' do
       it 'should return 001_create_table_user' do
         expect(subject.next_id).to eq('001_create_table_user')
